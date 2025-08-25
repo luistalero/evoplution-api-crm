@@ -9,8 +9,6 @@ services:
       - postgres
     ports:
       - 8080:8080
-    extra_hosts:
-      - "host.docker.internal:192.168.80.101"
     volumes:
       - evolution_instances:/evolution/instances
     networks:
@@ -30,7 +28,7 @@ services:
     volumes:
       - evolution_redis:/data
     ports:
-      - 6379:6379
+      - 6380:6379
 
   postgres:
     container_name: postgres
@@ -47,7 +45,7 @@ services:
     ]
     restart: always
     ports:
-      - 5432:5432
+      - 5433:5432
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=pass
